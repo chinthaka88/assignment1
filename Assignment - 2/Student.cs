@@ -11,17 +11,18 @@ namespace Assignment___2
         private int studentId;
         private string name;
         private DateTime dob;
+        private double marks;
+
+        public double Marks
+        {
+            get { return marks; }
+            set { marks = value; }
+        }
 
         public int StudentId
         {
             get { return studentId; }
             set { studentId = value; }
-        }
-       
-        public DateTime Dob1
-        {
-            get { return dob; }
-            set { dob = value; }
         }
 
         public DateTime Dob
@@ -30,11 +31,12 @@ namespace Assignment___2
             set { dob = value; }
         }
 
-        public Student(int _id, string _name, DateTime _dob)
+        public Student(int _id, string _name, DateTime _dob, int _marks)
         {
-            studentId = _id;
-            name = _name;
-            dob = _dob;
+            this.studentId = _id;
+            this.name = _name;
+            this.dob = _dob;
+            this.marks = _marks;
         }
 
         // For the sort method
@@ -43,7 +45,7 @@ namespace Assignment___2
             int dob = DateTime.Compare(this.dob, other.dob);
             if (dob == 0)
             {
-                return (this.marks.Average() > other.marks.Average()) ? 1 : -1;
+                return (this.marks > other.marks) ? 1 : -1;
             }
             else
             {
@@ -56,16 +58,9 @@ namespace Assignment___2
         // For printing perposes
         public override string ToString()
         {
-            return string.Format("StudentID: {0}\tName: {1}\tDOB: {2}\tAvgMarks: {3}", studentId, name, Dob.ToShortDateString(), marks.Average());
+            return string.Format("StudentID: {0}\tName: {1}\tDOB: {2}\tAvgMarks: {3}", studentId, name, Dob.ToShortDateString(), marks);
         }
 
 
-        List<double> marks = new List<double>();
-
-
-        public void addMarks(double mark)
-        {
-            marks.Add(mark);
-        }
     }
 }

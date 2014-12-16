@@ -10,52 +10,25 @@ namespace Assignment___2
     {
         static void Main(string[] args)
         {
-            Random r = new Random();
-            List<Student> stuList = new List<Student>();
-            Student s1;
-            for (int x = 0; x < 10; x++)
+          
+            Student s1 = new Student(1, "Aruna", new DateTime(1988,02,25), 50);
+            Student s2 = new Student(2, "Kamal", new DateTime(1988, 02, 25), 80);
+            Student s3 = new Student(3, "Nimal", new DateTime(1988, 02, 25), 60);
+
+            var studentList = new List<Student>();
+
+            studentList.Add(s1);
+            studentList.Add(s2);
+            studentList.Add(s3);
+
+            studentList.Sort();
+
+            foreach (var item in studentList)
             {
-                DateTime bday = new DateTime(r.Next(1988, 2000), r.Next(1, 12), r.Next(1, 25));
-                s1 = new Student(r.Next(), "Student1" + x, bday);
-                for (int i = 0; i < 10; i++)
-                {
-                    s1.addMarks(r.Next(0, 99));
-                }
-                stuList.Add(s1);
-                s1 = new Student(r.Next(), "Student2" + x, bday);
-                for (int i = 0; i < 10; i++)
-                {
-                    s1.addMarks(r.Next(0, 99));
-                }
-                stuList.Add(s1);
+                System.Console.WriteLine(item);
             }
+            System.Console.Read();
 
-            //Need to overide  public int CompareTo() in Student calss
-
-            stuList.Sort();
-
-            //foreach (var item in stuList)
-            //{
-            //    System.Console.WriteLine(item);
-            //}
-            //System.Console.Read();
-
-
-            //Dictionary<Student, Course> stuDic = new Dictionary<Student, Course>();
-            //int xx = 0;
-            //Course cc;
-            //foreach (var item in stuList)
-            //{
-            //    xx++;
-            //    cc = new Course(r.Next(1, 1000), "Course" + xx);
-            //    stuDic.Add(item, cc);
-            //}
-
-            //foreach (var item in stuDic)
-            //{
-            //    System.Console.WriteLine(item);
-            //}
-            //System.Console.Read();
             
         }
     }
